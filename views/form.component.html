@@ -1,11 +1,20 @@
 <fieldset>
     <legend>Form Title</legend>
-    <form method="post" action="" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <form method="post" action="" [ngFormModel]="myForm" (submit)="onSubmit()">
         <div class="form-row">
-            <label for="fld1">Your name</label> <input type="text" name="name" id="fld1" ngControl="name"/>
+            <label for="fld1">Your name</label> 
+            <input type="text" name="name" id="fld1" ngControl="name" />
+            <span class="form-error" *ngIf="! myForm.controls.name.valid && ! myForm.controls.name.pristine">
+                Invalid name!
+            </span>
         </div>
+        
         <div class="form-row">
-            <label for="fld2">Email</label> <input type="email" name="email" id="fld2" ngControl="email"/>
+            <label for="fld2">Email</label> 
+            <input type="email" name="email" id="fld2" ngControl="email"/>
+            <span class="form-error" *ngIf="! myForm.controls.email.valid && ! myForm.controls.email.pristine">
+                Invalid email!
+            </span>
         </div>
         
         <button type="submit">Submit</button>

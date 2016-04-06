@@ -42,6 +42,10 @@ nav ul li a.router-link-active {
     display: inline-block;
 }
 
+.form-error {
+    color: red;
+}
+
 table.people {
     border: 1px solid black;
     border-collapse:collapse;
