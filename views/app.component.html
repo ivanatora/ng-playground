@@ -1,6 +1,8 @@
 <nav>
-    <ul *ngFor="#item of aRoutes">
-        <li><a [routerLink]="[item]">{{item}}</a></li>
+    <ul>
+        <li *ngFor="#item of aRoutes">
+            <a [routerLink]="[item]">{{item}}</a>
+        </li>
     </ul>
 </nav>
 <router-outlet></router-outlet>
