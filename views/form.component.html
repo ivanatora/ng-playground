@@ -1,11 +1,13 @@
 <fieldset>
     <legend>Form Title</legend>
-    <form method="post" action="">
+    <form method="post" action="" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
         <div class="form-row">
-            <label for="fld1">Your name</label> <input type="text" name="fld1" id="fld1"/>
+            <label for="fld1">Your name</label> <input type="text" name="name" id="fld1" ngControl="name"/>
         </div>
         <div class="form-row">
-            <label for="fld2">Email</label> <input type="text" name="fld2" id="fld2"/>
+            <label for="fld2">Email</label> <input type="email" name="email" id="fld2" ngControl="email"/>
         </div>
+        
+        <button type="submit">Submit</button>
     </form>
 </fieldset>

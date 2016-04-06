@@ -7,4 +7,7 @@ import {Component} from 'angular2/core';
 
 export class FormComponent {
     
+    onSubmit(value: string){
+        console.log('da vidim?', value)
+    }
 }
