@@ -1,0 +1,19 @@
+
+
+.form-row {
+    margin-bottom: 5px;
+}
+.form-row label {
+    width: 100px;
+    display: inline-block;
+}
+
+table.people {
+    border: 1px solid black;
+    border-collapse:collapse;
+}
+table.people td {
+    border: 1px solid black;
+    padding: 5px;
+    width: 100px;
+}

@@ -1,6 +1,6 @@
 <nav>
-    <a [routerLink]="['Form']">Form</a>
+    <ul *ngFor="#item of aRoutes">
+        <li><a [routerLink]="[item]">{{item}}</a></li>
+    </ul>
 </nav>
 <router-outlet></router-outlet>
-
-<form-component></form-component>
