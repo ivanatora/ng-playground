@@ -1,0 +1,8 @@
+<button (click)="onClick()">Fetch</button>
+
+<div class="weather-data" *ngIf="bAjaxLoaded">
+    <div class="weather-row">City: {{oAjaxData.name}}</div>
+    <div class="weather-row">Temperature: {{oAjaxData.main.temp}}C</div>
+    <div class="weather-row">Humidity: {{oAjaxData.main.humidity}}%</div>
+    <div class="weather-row">Pressure: {{oAjaxData.main.pressure}}hpa</div>
+</div>
