@@ -2,10 +2,21 @@
 <html>
     <head>
         <base href="/">
-        <title>Sand Playground</title>
+        <title>Sandbox Playground</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
+        
+        <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+        
+        <!-- bootstrap -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css" />
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <!--\bootstrap -->
 
+        <!-- angular2 -->
         <!-- IE required polyfills, in this exact order -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
@@ -18,7 +29,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.13/angular2.dev.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.13/router.dev.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.13/http.dev.js"></script>
-
         <script>
             System.config({
                 transpiler: 'typescript',
@@ -28,9 +38,12 @@
             System.import('app/main')
                     .then(null, console.error.bind(console));
         </script>
+        <!--\angular2 -->
+        
+        <link rel="stylesheet" href="styles.css">
     </head>
 
-    <body>
+    <body class='app'>
     <my-app>Loading...</my-app>
 </body>
 </html>

@@ -10,6 +10,8 @@ export class TableComponent {
         ['Names', 'Emails'],
         ['John', 'john@john.com'],
         ['Tom', 'tom@tom.com'],
+        ['Jill', 'dfjdsfj@adfsdf.com'],
+        ['Bill', 'bill@adfsdf.com'],
         ['Alice', 'alice@alice.com']
     ]
 }

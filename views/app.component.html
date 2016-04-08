@@ -1,6 +1,6 @@
-<nav>
-    <ul>
-        <li *ngFor="#item of aRoutes">
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li *ngFor="#item of aRoutes" [class.active]="isActive([item])">
             <a [routerLink]="[item]">{{item}}</a>
         </li>
     </ul>

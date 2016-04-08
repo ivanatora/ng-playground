@@ -1,37 +1,5 @@
-nav ul {
-    font-size: 20px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin-bottom: 20px;
-    border: 1px solid black;
-    
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -border-radius: 10px;
-    border-radius: 10px;
-}
-
-nav ul li {
-    display: inline-block;
-    border-right: 1px solid #525252;
-}
-nav ul li:last-child {
-    border-right: none;
-}
-
-nav ul li a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #525252;
-}
-nav ul li a:hover {
-    color: black;
-}
-nav ul li a.router-link-active {
-    color: black;
+body {
+    margin: 10px;
 }
 
 .form-row {
@@ -46,7 +14,7 @@ nav ul li a.router-link-active {
     color: red;
 }
 
-table.people {
+/*table.people {
     border: 1px solid black;
     border-collapse:collapse;
 }
@@ -54,4 +22,4 @@ table.people td {
     border: 1px solid black;
     padding: 5px;
     width: 100px;
-}
+}*/
