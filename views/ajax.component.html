@@ -1,8 +1,8 @@
 <button (click)="onClick()">Fetch</button>
 
-<div class="weather-data" *ngIf="bAjaxLoaded">
-    <div class="weather-row">City: {{oAjaxData.name}}</div>
-    <div class="weather-row">Temperature: {{oAjaxData.main.temp}}C</div>
-    <div class="weather-row">Humidity: {{oAjaxData.main.humidity}}%</div>
-    <div class="weather-row">Pressure: {{oAjaxData.main.pressure}}hpa</div>
+<div class="weather-data" *ngIf="oAjaxData">
+    <div class="weather-row">City: {{oAjaxData.city}}</div>
+    <div class="weather-row">Temperature: {{oAjaxData.temp}}C</div>
+    <div class="weather-row">Humidity: {{oAjaxData.humidity}}%</div>
+    <div class="weather-row">Pressure: {{oAjaxData.pressure}}hpa</div>
 </div>

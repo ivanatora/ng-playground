@@ -12,7 +12,7 @@ import {WeatherService} from '../services/weather.service.ts';
 
 export class AjaxComponent {
     bAjaxLoaded = false;
-    oAjaxData = {};
+    oAjaxData = null;
     
     constructor(private _http: Http, private _weatherService: WeatherService){
         
@@ -20,10 +20,7 @@ export class AjaxComponent {
     
     onClick(){
         this._weatherService.getWeather().subscribe(
-            res => {
-                this.bAjaxLoaded = true;
-                this.oAjaxData = res.json();
-            },
+            res => this.oAjaxData = res,
             error => {
                 console.error('huh?', error)
 //                this.sErrorMessage = <any> error;

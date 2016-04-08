@@ -3,6 +3,8 @@ import {Injectable} from 'angular2/core';
 import {Http, Response} from 'angular2/http';
 import {Observable}     from 'rxjs/Observable';
 
+import {Weather} from './weather';
+
 @Injectable()
 
 export class WeatherService {
@@ -14,6 +16,14 @@ export class WeatherService {
     getWeather(){
         let sRequestUrl = this._sApiUrl + 'weather?q=Plovdiv&units=metric&APPID=' + this._sApiKey;
         
-        return this._http.get(sRequestUrl);
+        return this._http.get(sRequestUrl).map(res => {
+            let data = res.json();
+            return <Weather> {
+                city: data.name,
+                temp: data.main.temp,
+                humidity: data.main.humidity,
+                pressure: data.main.pressure
+            }
+        });
     }
 }
