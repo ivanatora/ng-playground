@@ -1,0 +1,22 @@
+<fieldset>
+    <legend>Login</legend>
+    <form method="post" action="" [ngFormModel]="myForm" (submit)="onSubmit()">
+        <div class="form-row">
+            <label for="fld1">Username</label> 
+            <input type="text" name="name" id="fld1" ngControl="username" />
+            <span class="form-error" *ngIf="! myForm.controls.username.valid && ! myForm.controls.username.pristine">
+                Invalid username!
+            </span>
+        </div>
+        
+        <div class="form-row">
+            <label for="fld2">Password</label> 
+            <input type="password" name="password" id="fld2" ngControl="password"/>
+            <span class="form-error" *ngIf="! myForm.controls.password.valid && ! myForm.controls.password.pristine">
+                Invalid password!
+            </span>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+</fieldset>

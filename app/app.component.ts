@@ -5,6 +5,7 @@ import {FormComponent} from './form.component';
 import {TableComponent} from './table.component';
 import {AjaxComponent} from './ajax.component';
 import {VisualComponent} from './visual.component';
+import {LoginComponent} from './login.component';
 
 @Component({
     selector: 'my-app',
@@ -32,11 +33,15 @@ import {VisualComponent} from './visual.component';
         path: '/visual',
         name: 'Visual',
         component: VisualComponent
+    }, {
+        path: '/login',
+        name: 'Login',
+        component: LoginComponent
     }
 ])
 
 export class AppComponent {
-    public aRoutes = ['Form', 'Table', 'Ajax', 'Visual'];
+    public aRoutes = ['Login', 'Form', 'Table', 'Ajax', 'Visual'];
     
     constructor(public router: Router) {}
 
