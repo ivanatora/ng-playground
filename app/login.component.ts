@@ -1,8 +1,10 @@
-import {Component} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {FORM_PROVIDERS, FormBuilder, Validators} from 'angular2/common';
 
 import {Http, Response, HTTP_PROVIDERS, Headers} from 'angular2/http';
-import {Observable}     from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
+
+import {User} from '../services/user.ts';
 
 @Component({
     selector: 'login-component',
@@ -14,6 +16,11 @@ import {Observable}     from 'rxjs/Observable';
 
 export class LoginComponent {
     myForm: ControlGroup;
+    
+    user: User;
+    bUserIsLoggedIn: bool = false;
+    
+    @Output() userSelected : EventEmitter = new EventEmitter<User>();
     
     constructor(private _formBuilder: FormBuilder, private _http: Http){
         this.myForm = this._formBuilder.group({
@@ -37,9 +44,12 @@ export class LoginComponent {
 
         this._http.post(sRequestUrl, sParams, {headers: headers}).subscribe(res => {
             var data = res.json();
-            console.log('incoming', data) 
+            console.log('POST reply', data) 
             if (data.success){
-                
+                this.bUserIsLoggedIn = true;
+                this.user = data.data.user;
+                this.userSelected.emit(this.user);
+                console.log('emitting something', this.userSelected)
             }
         });
         

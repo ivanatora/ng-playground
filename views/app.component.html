@@ -3,6 +3,9 @@
         <li *ngFor="#item of aRoutes" [class.active]="isActive([item])">
             <a [routerLink]="[item]">{{item}}</a>
         </li>
+        <li *ngIf="selectedUser">
+            {{selectedUser.first_name}}
+        </li>
     </ul>
 </nav>
 <router-outlet></router-outlet>
