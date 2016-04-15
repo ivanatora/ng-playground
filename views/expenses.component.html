@@ -1,0 +1,6 @@
+<table class="table table-striped table-hover table-bordered">
+    <tr *ngFor="#trs of aData; #idx = index">
+        <th *ngIf="idx == 0" *ngFor="#td of trs">{{td}}</th>
+        <td *ngIf="idx != 0" *ngFor="#td of trs">{{td}}</td>
+    </tr>
+</table>

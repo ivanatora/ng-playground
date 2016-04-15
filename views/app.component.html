@@ -1,10 +1,12 @@
 <nav class="navbar navbar-default">
+    <div class="navbar-header" *ngIf="user">
+        <a class="navbar-brand" href="javascript:;">{{user.first_name}}</a>
+    </div>
     <ul class="nav navbar-nav">
-        <li *ngFor="#item of aRoutes" [class.active]="isActive([item])">
-            <a [routerLink]="[item]">{{item}}</a>
-        </li>
-        <li *ngIf="user">
-            {{user.first_name}}
+        <li *ngFor="#item of aRoutes" [class.active]="isActive([item.name])">
+            <template [ngIf]="user || ! item.is_login_only">
+                <a [routerLink]="[item.name]">{{item.name}}</a>
+            </template>
         </li>
     </ul>
 </nav>

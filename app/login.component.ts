@@ -51,8 +51,6 @@ export class LoginComponent {
                 console.log('sending to service')
                 this._globalService.setUser(this.user);
                 
-//                this._globalService.load();
-//                this._globalService.add(this.user.first_name);
             }
         });
         

@@ -6,6 +6,7 @@ import {TableComponent} from './table.component';
 import {AjaxComponent} from './ajax.component';
 import {VisualComponent} from './visual.component';
 import {LoginComponent} from './login.component';
+import {ExpensesComponent} from './expenses.component';
 
 import {User} from '../services/user.ts';
 import {GlobalService} from '../services/global.service.ts';
@@ -40,11 +41,22 @@ import {GlobalService} from '../services/global.service.ts';
         path: '/login',
         name: 'Login',
         component: LoginComponent
+    }, {
+        path: '/expenses',
+        name: 'Expenses',
+        component: ExpensesComponent
     }
 ])
 
 export class AppComponent implements OnInit {
-    public aRoutes = ['Login', 'Form', 'Table', 'Ajax', 'Visual'];
+    public aRoutes = [
+        {name: 'Login'},
+        {name: 'Form'},
+        {name: 'Table'},
+        {name: 'Ajax'},
+        {name: 'Visual'},
+        {name: 'Expenses', is_login_only: true}
+    ];
     
     public user: User;
     
