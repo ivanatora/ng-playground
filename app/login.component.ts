@@ -48,9 +48,12 @@ export class LoginComponent {
             if (data.success){
                 this.bUserIsLoggedIn = true;
                 this.user = data.data.user;
-                console.log('sending to service')
+                if (data.data.jwt){
+                    this.user.jwt = data.data.jwt;
+                }
+                console.log('sending to service', this.user);
                 this._globalService.setUser(this.user);
-                
+
             }
         });
         
