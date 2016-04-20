@@ -1,17 +1,22 @@
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
+import {Http, HTTP_PROVIDERS}    from 'angular2/http';
+import {ExpenseService} from '../services/expense.service.ts';
+import {Expense} from '../services/expense.ts';
 
 @Component({
     selector: 'expenses-component',
-    templateUrl: 'views/expenses.component.html'
+    templateUrl: 'views/expenses.component.html',
+    providers: [
+        HTTP_PROVIDERS, ExpenseService
+    ]
 })
 
-export class ExpensesComponent {
-    public aData = [
-        ['Names', 'Emails'],
-        ['John', 'john@john.com'],
-        ['Tom', 'tom@tom.com'],
-        ['Jill', 'dfjdsfj@adfsdf.com'],
-        ['Bill', 'bill@adfsdf.com'],
-        ['Alice', 'alice@alice.com']
-    ]
+export class ExpensesComponent implements OnInit{
+    public aPageData = [];
+
+    constructor(private _http: Http, private _es: ExpenseService){}
+
+    ngOnInit(){
+        this._es.load().subscribe(res => this.aPageData = res);
+    }
 }
