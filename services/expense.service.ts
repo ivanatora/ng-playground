@@ -18,7 +18,6 @@ export class ExpenseService implements OnInit {
     }
 
     load(){
-        console.log('in load with user', this.user)
         if (this.user == null) return;
 
         var headers = new Headers();
@@ -28,10 +27,10 @@ export class ExpenseService implements OnInit {
             limit: 25,
             jwt: this.user.jwt
         }
-        console.log('params here are', oParams)
+
         var sParams = this.serialize(oParams);
 
-        return this._http.post(this._sApiUrl, sParams, {headers: headers}).map(res => res.data);
+        return this._http.post(this._sApiUrl, sParams, {headers: headers}).map(res => res.json());
     }
 
     serialize(obj) {

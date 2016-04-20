@@ -15,10 +15,7 @@ export class ExpensesComponent implements OnInit{
     constructor(private _http: Http, private _es: ExpenseService){}
 
     ngOnInit(){
-        // this._es.load().subscribe(res => this.aPageData = res);
+        this._es.load().subscribe(res => this.aPageData = res.data);
     }
 
-    onClick(){
-        this._es.load().subscribe(res => this.aPageData = res);
-    }
 }

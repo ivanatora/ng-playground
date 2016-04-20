@@ -17,7 +17,7 @@ export class VisualComponent {
     }
     
     onSubmit(){
-        console.log('form is', this.myForm)
+      
         if (this.myForm.dirty && this.myForm.valid){
             console.log('go! values:', this.myForm.value)
         }
