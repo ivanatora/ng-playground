@@ -6,9 +6,7 @@ import {Expense} from '../services/expense.ts';
 @Component({
     selector: 'expenses-component',
     templateUrl: 'views/expenses.component.html',
-    providers: [
-        HTTP_PROVIDERS, ExpenseService
-    ]
+    providers: []
 })
 
 export class ExpensesComponent implements OnInit{
@@ -17,6 +15,10 @@ export class ExpensesComponent implements OnInit{
     constructor(private _http: Http, private _es: ExpenseService){}
 
     ngOnInit(){
+        // this._es.load().subscribe(res => this.aPageData = res);
+    }
+
+    onClick(){
         this._es.load().subscribe(res => this.aPageData = res);
     }
 }

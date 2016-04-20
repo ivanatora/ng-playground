@@ -10,13 +10,14 @@ import {ExpensesComponent} from './expenses.component';
 
 import {User} from '../services/user.ts';
 import {GlobalService} from '../services/global.service.ts';
+import {ExpenseService} from "../services/expense.service.ts";
 
 @Component({
     selector: 'my-app',
     templateUrl: 'views/app.component.html',
     directives: [ROUTER_DIRECTIVES, LoginComponent],
     providers: [
-        ROUTER_PROVIDERS, GlobalService
+        ROUTER_PROVIDERS
     ]
 })
 

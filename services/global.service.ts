@@ -16,11 +16,16 @@ export class GlobalService {
     
     constructor(){
         this.user$ = new Observable(observer => this._userObserver = observer).share();
+        console.log('GlobalService constructed')
     }
     
     setUser(user: User){
         this._user = user;
         this._userObserver.next(user);
+    }
+
+    getUser(){
+        return this._user;
     }
     
 }

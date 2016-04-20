@@ -1,33 +1,45 @@
-import {Injectable} from 'angular2/core';
+import {Injectable, OnInit} from 'angular2/core';
 
-import {Http, Response, URLSearchParams} from 'angular2/http';
+import {Http, Response, URLSearchParams, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {Observable}     from 'rxjs/Observable';
 
 import {Expense} from './expense';
+import {GlobalService} from '../services/global.service.ts';
 
 @Injectable()
 
-export class ExpenseService {
+export class ExpenseService implements OnInit {
     private _sApiUrl : string = 'http://life.ivanatora.info/admin/finance/list';
+    public user = null;
     
-    constructor(private _http: Http){}
+    constructor(private _http: Http, private _gs: GlobalService){
+        this._gs.user$.subscribe(x => this.user = x)
+        this.user = this._gs.getUser();
+    }
 
     load(){
-        let params: URLSearchParams = new URLSearchParams();
-        params.set('start', 0);
-        params.set('limit', 25);
+        console.log('in load with user', this.user)
+        if (this.user == null) return;
 
-        return this._http.get(this._sApiUrl, {
-            search: params
-        }).map(res => {
-            let data = res.json();
-            console.log('got some data', data);
-            // return <Weather> {
-            //     city: data.name,
-            //     temp: data.main.temp,
-            //     humidity: data.main.humidity,
-            //     pressure: data.main.pressure
-            // }
-        });
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        var oParams = {
+            start: 0,
+            limit: 25,
+            jwt: this.user.jwt
+        }
+        console.log('params here are', oParams)
+        var sParams = this.serialize(oParams);
+
+        return this._http.post(this._sApiUrl, sParams, {headers: headers}).map(res => res.data);
+    }
+
+    serialize(obj) {
+        var str = [];
+        for (var p in obj)
+            if (obj.hasOwnProperty(p)) {
+                str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            }
+        return str.join("&");
     }
 }

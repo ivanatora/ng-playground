@@ -11,9 +11,7 @@ import {GlobalService} from '../services/global.service.ts';
 @Component({
     selector: 'login-component',
     templateUrl: 'views/login.component.html',
-    providers: [
-        HTTP_PROVIDERS
-    ]
+    providers: []
 })
 
 export class LoginComponent {
