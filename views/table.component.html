@@ -1,6 +1,14 @@
-<table class="table table-striped table-hover table-bordered">
-    <tr *ngFor="#trs of aData; #idx = index">
-        <th *ngIf="idx == 0" *ngFor="#td of trs">{{td}}</th>
-        <td *ngIf="idx != 0" *ngFor="#td of trs">{{td}}</td>
-    </tr>
-</table>
+<div class="row">
+    <div class="col-md-4">
+        <table class="table table-striped table-hover table-bordered">
+            <tr *ngFor="#trs of aData; #idx = index">
+                <template [ngIf]="idx == 0">
+                    <th  *ngFor="#td of trs">{{td}}</th>
+                </template>
+                <template [ngIf]="idx != 0">
+                    <td *ngFor="#td of trs">{{td}}</td>
+                </template>
+            </tr>
+        </table>
+    </div>
+</div>
