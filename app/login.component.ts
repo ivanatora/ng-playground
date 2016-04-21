@@ -7,6 +7,7 @@ import {Observer} from 'rxjs/Observer';
 
 import {User} from '../services/user.ts';
 import {GlobalService} from '../services/global.service.ts';
+import {Auth} from './auth.ts';
 
 @Component({
     selector: 'login-component',
@@ -21,7 +22,7 @@ export class LoginComponent {
     bUserIsLoggedIn: boolean = false;
     
     
-    constructor(private _formBuilder: FormBuilder, private _http: Http, private _globalService: GlobalService){
+    constructor(private _formBuilder: FormBuilder, private _http: Http, private _globalService: GlobalService, private _auth: Auth){
         this.myForm = this._formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required]
@@ -50,6 +51,8 @@ export class LoginComponent {
                     this.user.jwt = data.data.jwt;
                 }
                 this._globalService.setUser(this.user);
+
+                this._auth.login();
 
             }
         });

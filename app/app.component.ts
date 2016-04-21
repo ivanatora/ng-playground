@@ -41,7 +41,8 @@ import {ExpenseService} from "../services/expense.service.ts";
     }, {
         path: '/login',
         name: 'Login',
-        component: LoginComponent
+        component: LoginComponent,
+        useAsDefault: true
     }, {
         path: '/expenses',
         name: 'Expenses',
