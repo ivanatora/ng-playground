@@ -11,6 +11,7 @@ import {ExpensesComponent} from './expenses.component';
 import {User} from '../services/user.ts';
 import {GlobalService} from '../services/global.service.ts';
 import {ExpenseService} from "../services/expense.service.ts";
+import {DragulaComponent} from "./dragula.component.ts";
 
 @Component({
     selector: 'my-app',
@@ -47,6 +48,10 @@ import {ExpenseService} from "../services/expense.service.ts";
         path: '/expenses',
         name: 'Expenses',
         component: ExpensesComponent
+    }, {
+        path: '/dragula',
+        name: 'Dragula',
+        component: DragulaComponent
     }
 ])
 
@@ -57,7 +62,8 @@ export class AppComponent implements OnInit {
         {name: 'Table'},
         {name: 'Ajax'},
         {name: 'Visual'},
-        {name: 'Expenses', is_login_only: true}
+        {name: 'Expenses', is_login_only: true},
+        {name: 'Dragula'}
     ];
     
     public user: User;

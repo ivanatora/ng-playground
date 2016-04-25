@@ -29,11 +29,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.14/angular2.dev.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.14/router.dev.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.14/http.dev.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.8/dragula.min.js'></script>
+        <script src="/dragula.min.js"></script>
         <script>
             System.config({
                 transpiler: 'typescript',
                 typescriptOptions: {emitDecoratorMetadata: true},
-                packages: {'app': {defaultExtension: 'ts'}}
+                packages: {'app': {defaultExtension: 'ts'}},
+                map: {
+                    dragula: '/dragula.min.js'
+                }
             });
             System.import('app/main')
                     .then(null, console.error.bind(console));
